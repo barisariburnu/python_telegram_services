@@ -14,9 +14,9 @@ from libs.telegram import Telegram
 
 # Source telegram channel
 source_channels = [
-    'ucretsiz_udemy_kurslariii', 'udemy', 'lorebeam', 'udemycoursesfree',
-    'tutorialbar_udemy_coupons', 'ucretsiz_udemy_kurslari', 'UdemyFree4You',
-    'udemyking1', 'Coursevania', 'Coursat2020', 'dwmfreecourses'
+	'ucretsiz_udemy_kurslariii', 'udemy', 'lorebeam', 'udemycoursesfree',
+	'tutorialbar_udemy_coupons', 'ucretsiz_udemy_kurslari', 'UdemyFree4You',
+	'udemyking1', 'Coursevania', 'Coursat2020', 'dwmfreecourses'
 ]
 
 #############################
@@ -28,6 +28,6 @@ if __name__ == "__main__":
 	tg = Telegram(table='udemy', source_channels=source_channels)
 
 	# Asenkron running
-    asyncio.run(
+	asyncio.run(
 		tg.main()
 	)

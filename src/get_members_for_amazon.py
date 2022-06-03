@@ -27,6 +27,4 @@ if __name__ == "__main__":
 	tg = Telegram(table='udemy', source_channels=source_channels)
 
 	# Asenkron running
-    asyncio.run(
-		tg.main()
-	)
+	asyncio.run(tg.main())
