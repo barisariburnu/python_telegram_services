@@ -14,8 +14,9 @@ from libs.telegram import Telegram
 
 # Source telegram channel
 source_channels = [
-	'amazon', 'hotdealsofficials', 'Deals_Point', 'freebiehunter', 'AliexpressHotdeals12',
-	'uk_hot_deals', 'aliexpressbroficial', 'AliexpressEvaShop'
+	'amazonnv', 'hotdealsofficials', 'Deals_Point', 'freebiehunter', 'AliexpressHotdeals12',
+	'uk_hot_deals', 'aliexpressbroficial', 'AliexpressEvaShop', 'Amazon_Deals_Flipkart_Loots13',
+	'Amazon_Movies_Videos_hd_Movies', 'Amazon_Movies_Videos_hd_prime'
 ]
 
 #############################
