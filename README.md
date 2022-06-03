@@ -14,10 +14,10 @@ It has been developed to register the participants of telegram groups in the dat
     - `pip install -r requirements.txt`
 
 3. Create environment variables
-    - `MONGO_USERNAME='<username>'`
-    - `MONGO_USERNAME='<password>'`
-    - `TELEGRAM_API_ID='<api_id>'`
-    - `TELEGRAM_API_ID='<api_hash>'`
+    - `export MONGO_USERNAME='<username>'`
+    - `export MONGO_USERNAME='<password>'`
+    - `export TELEGRAM_API_ID='<api_id>'`
+    - `export TELEGRAM_API_ID='<api_hash>'`
 
 4. Start the scripts
     - `nohup python3 -u python_telegram_services/<script_name>.py > <script_name>.log &`
