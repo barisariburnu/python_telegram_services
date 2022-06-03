@@ -9,9 +9,9 @@ import asyncio
 import logging
 
 from telethon.sync import TelegramClient
-from python_telegram_services.models.user import User
-from python_telegram_services.models.status import Status
-from python_telegram_services.libs.config import QUERIES, TELEGRAM_API_ID, TELEGRAM_API_HASH
+from models.user import User
+from models.status import Status
+from libs.config import QUERIES, TELEGRAM_API_ID, TELEGRAM_API_HASH
 
 #############################
 # Global Variables          #
@@ -26,9 +26,8 @@ script_name = os.path.splitext(filename)[0]
 
 # Source telegram channel
 source_channels = [
-    'ucretsiz_udemy_kurslariii', 'udemy', 'lorebeam', 'udemycoursesfree',
-    'tutorialbar_udemy_coupons', 'ucretsiz_udemy_kurslari', 'UdemyFree4You',
-    'udemyking1', 'Coursevania', 'Coursat2020', 'dwmfreecourses'
+    'amazon', 'hotdealsofficials', 'Deals_Point', 'freebiehunter', 'AliexpressHotdeals12',
+    'uk_hot_deals', 'aliexpressbroficial', 'AliexpressEvaShop'
 ]
 
 #############################
@@ -54,8 +53,8 @@ async def main():
         for key in QUERIES:
           try:
             async for user in client.iter_participants(channel, search=key):
-                user = User(user, channel=channel)
-                result = user.save(table='udemy')
+                user = User(user, channel=channel)   
+                result = user.save(table='amazon')
 
                 if result == Status.INVALID:
                     logger.debug(f"INVALID \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")

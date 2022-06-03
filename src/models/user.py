@@ -5,7 +5,8 @@
 #############################
 
 from pymongo import MongoClient
-from python_telegram_services.libs.config import MONGO_USERNAME, MONGO_PASSWORD
+from libs.config import MONGO_USERNAME, MONGO_PASSWORD
+from models.status import Status
 
 #############################
 # Configuration             #
