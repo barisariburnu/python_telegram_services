@@ -4,6 +4,7 @@
 # Imports                   #
 #############################
 
+import os
 import logging
 
 from telethon.sync import TelegramClient
@@ -28,37 +29,40 @@ logger.addHandler(logging.StreamHandler())
 # Set logging level
 logger.setLevel(logging.DEBUG)
 
-# Telegram Configuration
-client = TelegramClient(script_name, TELEGRAM_API_ID, TELEGRAM_API_HASH)
-
 #############################
 # Main Code                 #
 #############################
 
-async def main(table, source_channels):
-	async with client:
-		for channel in source_channels:
-			for key in QUERIES:
-				try:
-					async for user in client.iter_participants(channel, search=key):
-						user = User(user, channel=channel)
-						result = user.save(table=table)
+class Telegram:
+	def __init__(self, table, source_channels)
+		self.table = table
+		self.source_channels = source_channels
+		self.client = TelegramClient(self.table, TELEGRAM_API_ID, TELEGRAM_API_HASH)
 
-						if result == Status.INVALID:
-							logger.debug(f"INVALID \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
-						elif result == Status.ALREADY:
-							logger.debug(f"EXISTS \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
-						elif result == Status.ERROR:
-							logger.debug(f"ERROR \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
-						elif result == Status.SUCCESS:
-							logger.debug(f"SUCCESS \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
+	async def main(self):
+		async with client:
+			for channel in self.source_channels:
+				for key in QUERIES:
+					try:
+						async for user in client.iter_participants(channel, search=key):
+							user = User(user, channel=channel)
+							result = user.save(table=self.table)
 
-                except ChatAdminRequiredError as e:
-                    logger.error(e)
-                    continue
-                except TypeError as e:
-                    logger.error(e)
-                    continue
-                except Exception as e:
-                    logger.error(e)
-                    continue
+							if result == Status.INVALID:
+								logger.debug(f"INVALID \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
+							elif result == Status.ALREADY:
+								logger.debug(f"EXISTS \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
+							elif result == Status.ERROR:
+								logger.debug(f"ERROR \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
+							elif result == Status.SUCCESS:
+								logger.debug(f"SUCCESS \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
+
+					except ChatAdminRequiredError as e:
+						logger.error(e)
+						continue
+					except TypeError as e:
+						logger.error(e)
+						continue
+					except Exception as e:
+						logger.error(e)
+						continue
