@@ -8,6 +8,7 @@ import os
 import logging
 
 from telethon.sync import TelegramClient
+from telethon.errors import ChatAdminRequiredError
 from models.user import User
 from models.status import Status
 from libs.config import QUERIES, TELEGRAM_API_ID, TELEGRAM_API_HASH
