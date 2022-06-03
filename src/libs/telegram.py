@@ -41,11 +41,11 @@ class Telegram:
 		self.client = TelegramClient(self.table, TELEGRAM_API_ID, TELEGRAM_API_HASH)
 
 	async def main(self):
-		async with client:
+		async with self.client:
 			for channel in self.source_channels:
 				for key in QUERIES:
 					try:
-						async for user in client.iter_participants(channel, search=key):
+						async for user in self.client.iter_participants(channel, search=key):
 							user = User(user, channel=channel)
 							result = user.save(table=self.table)
 
