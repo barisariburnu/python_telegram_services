@@ -24,7 +24,7 @@ db = client.telegram
 
 class User:
     def __init__(self, data, channel=None) -> None:
-        self._id = data._id
+        self._id = data.id
         self.channel = channel
         self.username = data.username
         self.first_name = data.first_name
