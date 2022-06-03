@@ -43,7 +43,7 @@ async def main(table, source_channels):
 					async for user in client.iter_participants(channel, search=key):
 						user = User(user, channel=channel)
 						result = user.save(table=table)
-						
+
 						if result == Status.INVALID:
 							logger.debug(f"INVALID \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
 						elif result == Status.ALREADY:
@@ -53,12 +53,12 @@ async def main(table, source_channels):
 						elif result == Status.SUCCESS:
 							logger.debug(f"SUCCESS \t [Channel: {user.channel} > Key: {key} > User: {user.username}]")
 
-		  		except ChatAdminRequiredError as e:
-			  		logger.error(e)
-			  		continue
-		  		except TypeError as e:
-					logger.error(e)
-					continue
-		  		except Exception as e:
-					logger.error(e)
-					continue
+                except ChatAdminRequiredError as e:
+                    logger.error(e)
+                    continue
+                except TypeError as e:
+                    logger.error(e)
+                    continue
+                except Exception as e:
+                    logger.error(e)
+                    continue
