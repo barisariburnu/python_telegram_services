@@ -35,7 +35,7 @@ logger.setLevel(logging.DEBUG)
 #############################
 
 class Telegram:
-	def __init__(self, table, source_channels)
+	def __init__(self, table, source_channels):
 		self.table = table
 		self.source_channels = source_channels
 		self.client = TelegramClient(self.table, TELEGRAM_API_ID, TELEGRAM_API_HASH)
