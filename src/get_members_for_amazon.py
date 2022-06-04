@@ -25,7 +25,7 @@ source_channels = [
 
 if __name__ == "__main__":
 	# Telegram instance
-	tg = Telegram(table='udemy', source_channels=source_channels)
+	tg = Telegram(table='amazon', source_channels=source_channels)
 
 	# Asenkron running
 	asyncio.run(tg.main())
