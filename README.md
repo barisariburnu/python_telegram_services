@@ -2,7 +2,7 @@
 
 It has been developed to register the participants of telegram groups in the database, written in Python.
 
-### Install
+### Install 
 
 1. Clone repository
     - `cd /home/ubuntu`
@@ -22,8 +22,11 @@ It has been developed to register the participants of telegram groups in the dat
     - `export MONGO_USERNAME='<password>'`
     - `export TELEGRAM_API_ID='<api_id>'`
     - `export TELEGRAM_API_ID='<api_hash>'`
+    - `export TELEGRAM_BOT_TOKEN='<bot_token>'`
 
-5. Start the scripts
+### Configuration for Get Member Services 
+
+1. Start the scripts
     - `sudo cp service.conf /etc/supervisor/conf.d/get_members_for_amazon.conf`
     - `sudo cp service.conf /etc/supervisor/conf.d/get_members_for_udemy.conf`
     - `sudo cp service.conf /etc/supervisor/conf.d/get_members_for_crypto.conf`
@@ -34,6 +37,20 @@ It has been developed to register the participants of telegram groups in the dat
     - `sudo supervisorctl start get_members_for_crypto`
 
 You can now see its logs with `tail -f logs/<service-name>.log`. You can stop its services with `sudo supervisorctl stop all`
+
+### Configuration for Send Message Services
+
+1. Install and enable cron
+    - `sudo apt install cron`
+    - `sudo systemctl enable cron`
+
+2. Edit crontab
+    - `crontab -e`
+
+3. Add to bottom line 
+    - `30 * * * * /home/ubuntu/python_telegram_services/service.sh -f send_message_for_udemy.py`
+
+4. Save and exit.
 
 ### Note
 
