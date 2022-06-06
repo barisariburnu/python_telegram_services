@@ -44,10 +44,10 @@ class Course:
         if self.data['category']:
             result = f"🔰 Category: {self.data['category']}"
             
-        if category and self.data['subcategory']:
+        if self.data['category'] and self.data['subcategory']:
             result += f" / {self.data['subcategory']}"
 
-        if category == None and self.data['subcategory']:
+        if self.data['category'] == None and self.data['subcategory']:
             result = f"🔰 Category: {self.data['subcategory']}"
         
         return result
@@ -64,7 +64,7 @@ class Course:
 
     @property
     def enroll(self):
-        url_text = f'https://udemy.com/courses/{self.data['_id']}'
+        url_text = f'https://udemy.com/courses/{self.id}'
         result = f"🔗 Enroll Now: [{url_text}]({self.shorten_url})"
         return result
 
