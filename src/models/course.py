@@ -59,7 +59,7 @@ class Course:
 
     @property
     def instructional_level(self):
-        result = f"⏰ Instructional Level: {self.data['instructional_level']}"
+        result = f"🌎 Instructional Level: {self.data['instructional_level']}"
         return result
 
     @property
