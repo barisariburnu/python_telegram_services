@@ -4,6 +4,9 @@
 # Course Model              #
 #############################
 
+from cgitb import reset
+
+
 class Course:
     def __init__(self, course) -> None:
         self.data = course
@@ -39,7 +42,8 @@ class Course:
 
     @property
     def shorten_url(self):
-        result = f"http://ouo.io/qs/0EvEB0tI?s=https://www.udemy.com/course/{self.slug}"
+        # result = f"http://ouo.io/qs/0EvEB0tI?s=https://www.udemy.com/course/{self.slug}"
+        result = f"https://www.udemy.com/course/{self.slug}"
         return result
 
     @property
