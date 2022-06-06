@@ -14,6 +14,11 @@ class Course:
         return result
 
     @property
+    def slug(self):
+        result = self.data['slug']
+        return result
+
+    @property
     def title(self):
         result = f"**🔴 {self.data['title']}**"
         return result
@@ -34,7 +39,7 @@ class Course:
 
     @property
     def shorten_url(self):
-        result = self.data['shorten_url']
+        result = f"http://ouo.io/qs/0EvEB0tI?s=https://www.udemy.com/course/{self.slug}"
         return result
 
     @property
