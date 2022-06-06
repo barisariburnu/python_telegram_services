@@ -70,7 +70,7 @@ class Course:
 
     @property
     def shared(self):
-        result = {self.data['shared']}
+        result = self.data['shared']
         return result
 
     @property
