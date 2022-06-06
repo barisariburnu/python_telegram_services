@@ -6,7 +6,7 @@
 
 import asyncio
 
-from libs.telegram import Telegram
+from helper.telethon_helper import TelethonHelper
 
 #############################
 # Global Variables          #
@@ -25,9 +25,9 @@ source_channels = [
 
 if __name__ == "__main__":
 	# Telegram instance
-	tg = Telegram(table='udemy', source_channels=source_channels)
+	tg = TelethonHelper(table='udemy', source_channels=source_channels)
 
 	# Asenkron running
 	asyncio.run(
-		tg.main()
+		tg.get_participants()
 	)
