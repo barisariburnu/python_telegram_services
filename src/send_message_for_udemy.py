@@ -14,7 +14,7 @@ from pymongo import MongoClient
 from config import MONGO_USERNAME, MONGO_PASSWORD
 from models.status import Status
 from models.course import Course
-from src.config import TELEGRAM_API_HASH, TELEGRAM_API_ID, TELEGRAM_BOT_TOKEN
+from config import TELEGRAM_API_HASH, TELEGRAM_API_ID, TELEGRAM_BOT_TOKEN
 
 #############################
 # Global Variables          #
