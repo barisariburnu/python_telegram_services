@@ -71,7 +71,7 @@ class Udemy:
     async def send_photo(self):
         async with app:
             try:
-                result = self.cursor.find_one({}).sort("shared", -1)
+                result = self.cursor.find({}).sort("shared", -1).limit(1)
                 data = Course(result)
                 
                 response = await app.send_photo(
