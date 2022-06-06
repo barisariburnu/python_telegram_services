@@ -86,11 +86,11 @@ class Course:
         caption.append(self.title)
 
         # Description
-        if self.data['description']:
+        if self.description:
             caption.append(self.description)
 
         # Category
-        if self.data['category']:
+        if self.category:
             caption.append(self.category)
 
         # Content Info
