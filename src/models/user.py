@@ -5,7 +5,7 @@
 #############################
 
 from pymongo import MongoClient
-from libs.config import MONGO_USERNAME, MONGO_PASSWORD
+from config import MONGO_USERNAME, MONGO_PASSWORD
 from models.status import Status
 
 #############################
