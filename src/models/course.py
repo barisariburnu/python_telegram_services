@@ -10,7 +10,7 @@ class Course:
 
     @property
     def id(self):
-        result = {self.data['_id']}
+        result = self.data['_id']
         return result
 
     @property
