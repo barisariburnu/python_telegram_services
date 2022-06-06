@@ -6,10 +6,15 @@
 
 import logging
 
+from pyrogram import Client
+from pymongo import MongoClient
+from pyrogram import enums
+from pyrogram.types import (InlineKeyboardMarkup, InlineKeyboardButton)
 from pymongo import MongoClient
 from config import MONGO_USERNAME, MONGO_PASSWORD
 from models.status import Status
 from models.course import Course
+from src.config import TELEGRAM_API_HASH, TELEGRAM_API_ID, TELEGRAM_BOT_TOKEN
 
 #############################
 # Global Variables          #
@@ -32,6 +37,13 @@ logger.setLevel(logging.DEBUG)
 
 # Mongo DB Configuration
 client = MongoClient(f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@ac-dczxfng-shard-00-00.latzb7l.mongodb.net:27017,ac-dczxfng-shard-00-01.latzb7l.mongodb.net:27017,ac-dczxfng-shard-00-02.latzb7l.mongodb.net:27017/?ssl=true&replicaSet=atlas-bwqagz-shard-0&authSource=admin&retryWrites=true&w=majority")
+
+app = Client(
+  f"pyrogram_{TARGET_CHANNEL}",
+  api_id=TELEGRAM_API_ID, 
+  api_hash=TELEGRAM_API_HASH,
+  bot_token=TELEGRAM_BOT_TOKEN
+)
 
 #############################
 # Udemy Model               #
