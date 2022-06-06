@@ -24,12 +24,16 @@ It has been developed to register the participants of telegram groups in the dat
     - `export TELEGRAM_API_ID='<api_hash>'`
 
 5. Start the scripts
-    - `sudo cp service.conf /etc/supervisor/conf.d/<service-name>.conf`
+    - `sudo cp service.conf /etc/supervisor/conf.d/get_members_for_amazon.conf`
+    - `sudo cp service.conf /etc/supervisor/conf.d/get_members_for_udemy.conf`
+    - `sudo cp service.conf /etc/supervisor/conf.d/get_members_for_crypto.conf`
     - `sudo supervisorctl reread`
     - `sudo supervisorctl reload`
-    - `sudo supervisorctl start <service-name>`
+    - `sudo supervisorctl start get_members_for_amazon`
+    - `sudo supervisorctl start get_members_for_udemy`
+    - `sudo supervisorctl start get_members_for_crypto`
 
-You can now see its logs with `tail -f logs/<service-name>.log`.
+You can now see its logs with `tail -f logs/<service-name>.log`. You can stop its services with `sudo supervisorctl stop all`
 
 ### Note
 

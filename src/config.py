@@ -7,6 +7,7 @@ MONGO_PASSWORD = os.environ['MONGO_PASSWORD']
 
 TELEGRAM_API_ID = os.environ['TELEGRAM_API_ID']
 TELEGRAM_API_HASH = os.environ['TELEGRAM_API_HASH']
+TELEGRAM_BOT_TOKEN = os.environ['TELEGRAM_BOT_TOKEN']
 
 QUERIES = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 

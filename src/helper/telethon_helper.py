@@ -11,7 +11,7 @@ from telethon.sync import TelegramClient
 from telethon.errors import ChatAdminRequiredError
 from models.user import User
 from models.status import Status
-from libs.config import QUERIES, TELEGRAM_API_ID, TELEGRAM_API_HASH
+from config import QUERIES, TELEGRAM_API_ID, TELEGRAM_API_HASH
 
 #############################
 # Global Variables          #
@@ -34,11 +34,11 @@ logger.setLevel(logging.DEBUG)
 # Main Code                 #
 #############################
 
-class Telegram:
+class TelethonHelper:
 	def __init__(self, table, source_channels):
 		self.table = table
 		self.source_channels = source_channels
-		self.client = TelegramClient(self.table, TELEGRAM_API_ID, TELEGRAM_API_HASH)
+		self.client = TelegramClient(f"telethon_{self.table}", TELEGRAM_API_ID, TELEGRAM_API_HASH)
 
 	async def main(self):
 		async with self.client:
