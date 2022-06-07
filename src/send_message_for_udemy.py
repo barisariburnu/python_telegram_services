@@ -7,7 +7,7 @@
 import logging
 
 from pyrogram import Client
-from pymongo import MongoClient
+from pymongo import MongoClient, ASCENDING, DESCENDING
 from pyrogram import enums
 from pyrogram.types import (InlineKeyboardMarkup, InlineKeyboardButton)
 from pymongo import MongoClient
@@ -71,7 +71,7 @@ class Udemy:
     async def send_photo(self):
         async with app:
             try:
-                result = self.cursor.find({}).sort("shared", 1).limit(1)[0]
+                result = self.cursor.find({}).sort([("shared", ASCENDING), ("created", DESCENDING)]).limit(1)[0]
                 data = Course(result)
                 
                 response = await app.send_photo(
